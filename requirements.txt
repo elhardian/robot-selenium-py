@@ -1,0 +1,3 @@
+robotframework-SeleniumLibrary
+webdriver-manager
+selenium==4.2.0
