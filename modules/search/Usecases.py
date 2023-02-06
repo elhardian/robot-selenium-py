@@ -40,20 +40,8 @@ class Usecases:
     def validate_price_on_search_result(self, min_amount=filter_price_from, max_amount=filter_price_to):
         time.sleep(5)
         elements = self.element_helper.get_elements_by_class_name(element_class_price_label)
-        product_index = 0
-        is_valid_price = True
-        price_label = ""
         for element in elements:
             if element.text.startswith("Rp"):
                 price = int(sub(r'Rp\.|[^\d.]', '', element.text))
                 if price < min_amount or price > max_amount:
-                    price_label=element.text
-                    is_valid_price = False
-                    break
-            product_index+=1
-        
-        if not is_valid_price:
-            properties_element = self.element_helper.get_elements_by_class_name(element_class_property_name)
-            not_valid_property = properties_element[product_index]
-            raise Exception(f"Property {not_valid_property.text} price is {price_label} which less than minimum or more than maximum")
-
+                    raise Exception(f"Some property price are out of filter range which is {element.text}")
