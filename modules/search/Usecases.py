@@ -53,7 +53,7 @@ class Usecases:
             product_index+=1
         
         if not is_valid_price:
-            properties_element = self.element_helper.get_element_by_class_name(element_class_property_name)
+            properties_element = self.element_helper.get_elements_by_class_name(element_class_property_name)
             not_valid_property = properties_element[product_index]
             raise Exception(f"Property {not_valid_property.text} price is {price_label} which less than minimum or more than maximum")
 
