@@ -1,0 +1,11 @@
+filter_price_from=1000000
+filter_price_to=2000000
+
+# Elements Variables
+element_class_home_visibility="l1hgmivi"
+element_class_filter_button="bl3wu21"
+element_class_submit_search="_1ku51f04"
+element_class_price_label="a8jt5op"
+
+element_id_input_filter_minimum_price="price_filter_min"
+element_id_input_filter_maximum_price="price_filter_max"

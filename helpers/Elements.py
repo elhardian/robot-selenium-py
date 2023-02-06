@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import InvalidSessionIdException
+from selenium.webdriver.common.action_chains import ActionChains
 import sys 
 import os
 current_directory = os.getcwd()
@@ -11,9 +12,8 @@ sys.path.append(current_directory)
 class Element:
     element_timeout = 30
     base_url = os.environ.get('BASE_URL', 'https://airbnb.com')
-    driver.res
 
-    def go_to_page(self, path):
+    def go_to_page(self, path=""):
         destination_page = self.base_url + path
         driver.get(destination_page)
 
@@ -48,8 +48,21 @@ class Element:
         except:
             if capture_on_error: self.__take_a_screenshot()
             self.quit_driver()
-            raise Exception(f"element with clas *{class_name}* couldn't be found after waiting {self.element_timeout} seconds")
+            raise Exception(f"element with class *{class_name}* couldn't be found after waiting {self.element_timeout} seconds")
+    
+    def get_elements_by_class_name(self, class_name):
+        try:
+            elements = driver.find_elements_by_class_name(class_name)
+            return elements
+        except:
+            if capture_on_error: self.__take_a_screenshot()
+            self.quit_driver()
+            raise Exception(f"elements with class *{class_name}* couldn't be found after waiting {self.element_timeout} seconds")
         
+    def double_click(self, element):
+        actionChains = ActionChains(driver)
+        actionChains.double_click(element).perform()
+
     def quit_driver(self):
         driver.quit()
         
