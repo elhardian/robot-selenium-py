@@ -45,3 +45,5 @@ class Usecases:
                 price = int(sub(r'Rp\.|[^\d.]', '', element.text))
                 if price < min_amount or price > max_amount:
                     raise Exception(f"Some property price are out of filter range which is {element.text}")
+                
+        self.element_helper.quit_driver()

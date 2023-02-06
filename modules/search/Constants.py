@@ -1,4 +1,4 @@
-filter_price_from=1000000
+filter_price_from=1200000
 filter_price_to=2000000
 
 # Elements Variables
