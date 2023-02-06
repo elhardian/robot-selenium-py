@@ -12,6 +12,7 @@ Make sure you have installed these on your local machine :
 
 ### Project Structure
 This is my own code base, inspired by common code base on my golang and nodejs projects with clean architecture.
+
     .
     ├── requirements.txt        # File that contains all python libraries that we used in this project
     ├── Main.py                 # All configurations for this test project should define here 
@@ -41,6 +42,7 @@ This is my own code base, inspired by common code base on my golang and nodejs p
     pip install -r requirements.txt
     ``` 
 2. Running test scenario
+
     Run all test cases on dir `./test-cases`
     ```
     python -m robot test-cases
